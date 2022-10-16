@@ -7,8 +7,8 @@
   "description": "Express Server",
   "main": "express.js",
   "scripts": {
-    "dev": "nodemon express",
-    "start": "node express"
+    "dev": "nodemon index",
+    "start": "node index"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
