@@ -20,12 +20,6 @@ const addLinks = async (req, res) => {
     // pool.query(queries.addLinks, )
 }
 
-// getStandupLinks().then((res) => {
-//     console.log(res)
-// })
-
-// getStandupLinks()
-
 const getLatestLinks = async (req, res) => {
 
     pool.query(queries.getLatestLinks, async (error, result) => {
