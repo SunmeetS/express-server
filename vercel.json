@@ -10,7 +10,8 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/express.js"
+        "dest": "/express.js",
+        "status": 200
       }
     ]
   }
