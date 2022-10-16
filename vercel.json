@@ -12,5 +12,6 @@
         "src": "/(.*)",
         "dest": "/express.js"
       }
-    ]
+    ],
+    "rewrites": [{ "source": "(.*)", "destination": "/" }]
   }

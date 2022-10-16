@@ -1,7 +1,7 @@
 let Pool = require("pg").Pool
 const pool = new Pool({
     user: "postgres",
-    host: "express-server1.vercel.app.com",
+    host: "https://express-server-production-dd8e.up.railway.app",
     database: "standupurls",
     password: "sunmeet",
     port: 5432
