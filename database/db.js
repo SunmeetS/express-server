@@ -1,9 +1,9 @@
 let Pool = require("pg").Pool
 const pool = new Pool({
-    user: "postgres",
-    host: "https://express-server-production-dd8e.up.railway.app",
-    database: "standupurls",
-    password: "sunmeet",
+    user: "qvkfibib",
+    host: "satao.db.elephantsql.com",
+    database: "qvkfibib",
+    password: "wuXFh1DyeXBE29lXToXk-_bK_gimeXWY",
     port: 5432
 })
 
