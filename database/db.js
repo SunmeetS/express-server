@@ -4,7 +4,8 @@ const pool = new Pool({
     host: "satao.db.elephantsql.com",
     database: "qvkfibib",
     password: "wuXFh1DyeXBE29lXToXk-_bK_gimeXWY",
-    port: 5432
+    port: 5432,
+    max: 1,
 })
 
 module.exports = {

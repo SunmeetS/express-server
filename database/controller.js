@@ -17,11 +17,9 @@ const addLinks = async (req, res) => {
                 pool.query(queries.addLinks, [date, url], (error, result) => {
                     if (error) {
                         console.log(error.message)
-                        // pool.query(queries.addLinks, [date, url], (err, result)=>{
-                        //     pool.query(queries.addLinks, [date, url], (err, result)=>{
-                        //         console.log(err?.message?err.message: err)
-                        //     })
-                        // })
+                        pool.query(queries.addLinks, [date, url], (err, result) => {
+                            console.log(err.message)
+                        })
                     }
                 })
             }, 400);
