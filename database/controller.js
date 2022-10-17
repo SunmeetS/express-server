@@ -8,17 +8,33 @@ let cron = require("node-cron")
 // console.log(()=>getStandupLinks())
 
 const addLinks = async (req, res) => {
-    let links = await getStandupLinks()
-    links.forEach(({date, url})=>{
-        console.log(url)
-        pool.query(queries.addLinks, [date, url], (error, result) => {
-            if(error) res.send(error.message);
-        })
-    })
-    res.send("Links Added Succesfully")
 
-    // pool.query(queries.addLinks, )
+    try {
+        let links = await getStandupLinks()
+        links.forEach(({ date, url }) => {
+            console.log(url)
+            setTimeout(() => {
+                pool.query(queries.addLinks, [date, url], (error, result) => {
+                    if (error) {
+                        console.log(error.message)
+                        // pool.query(queries.addLinks, [date, url], (err, result)=>{
+                        //     pool.query(queries.addLinks, [date, url], (err, result)=>{
+                        //         console.log(err?.message?err.message: err)
+                        //     })
+                        // })
+                    }
+                })
+            }, 400);
+        })
+        res.send("Links Added Succesfully")
+    } catch (err) {
+        console.log(err)
+    }
+
 }
+
+// pool.query(queries.addLinks, )
+
 
 const getLatestLinks = async (req, res) => {
 

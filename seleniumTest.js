@@ -55,7 +55,7 @@ async function getStandupLinks() {
         return result;
     } catch (error) {
         getStandupLinks()
-        return error.message || {}
+        return {}
     }
 
 }
