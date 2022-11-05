@@ -35,12 +35,11 @@ const addLinks = async (req, res) => {
 
 
 const getLatestLinks = async (req, res) => {
-
     try {
         pool.query(queries.getLatestLinks, async (error, result) => {
             if (error) res.send(error.message);
             else {
-                res.header("Access-Control-Allow-Origin", "*");
+                res.setHeader('Access-Control-Allow-Credentials', true);
                 res.status(200).json(result.rows)
             }
             // console.log("links: ", links)

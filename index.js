@@ -15,7 +15,6 @@ const corsOption = {
 // });
 
 let app = express();
-console.log("ENV PASSWORD ",process.env.DB_PASSWORD)
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("Server listening on Port", 3001);
