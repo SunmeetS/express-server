@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
     "node": "14.x"
-},
+  },
   "description": "Express Server",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^13.5.0",
     "chromedriver": "^105.0.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "node-cron": "^3.0.2",
     "pg": "^8.8.0",

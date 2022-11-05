@@ -3,19 +3,19 @@ let routes = require("./database/routes")
 let cron = require("node-cron")
 const cors = require('cors');
 const axios = require("axios");
-
 const corsOption = {
     origin: '*'
 };
 
-cron.schedule("*/30 * * * * *", function() {
-axios.post('https://express-server-production-dd8e.up.railway.app/addLinks').then((res) => {
-    console.log("Hello from axios")
-    console.log(res.data)
-}); 
-});
+// cron.schedule("*/30 * * * * *", function() {
+    // axios.post('http://localhost:3001/addLinks').then((res) => {
+    //     console.log("Hello from axios")
+    //     console.log(res.data)
+    // }); 
+// });
 
 let app = express();
+console.log("ENV PASSWORD ",process.env.DB_PASSWORD)
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("Server listening on Port", 3001);

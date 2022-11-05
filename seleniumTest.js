@@ -30,30 +30,27 @@ async function getStandupLinks() {
             i++;
         }
 
-            // Scraping the Links
+        // Scraping the Links
 
-            await driver.wait(until.elementLocated(By.css('.title-and-badge.style-scope.ytd-video-renderer .yt-simple-endpoint.style-scope.ytd-video-renderer')), 5000)
+        await driver.wait(until.elementLocated(By.css('.title-and-badge.style-scope.ytd-video-renderer .yt-simple-endpoint.style-scope.ytd-video-renderer')), 5000)
 
-            let links = await driver.findElements(By.css(".title-and-badge.style-scope.ytd-video-renderer .yt-simple-endpoint.style-scope.ytd-video-renderer"));
-            // console.log(links)
-            let link = await links[13].getAttribute("href")
-            // console.log(link);
+        let links = await driver.findElements(By.css(".title-and-badge.style-scope.ytd-video-renderer .yt-simple-endpoint.style-scope.ytd-video-renderer"));
 
-            let result = await Promise.all(links.map(async (link) => {
-                try {
-                    var date = new Date();
-                    var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-                    return await link.getAttribute("href") ? {
-                        date: current_date,
-                        url: await link.getAttribute("href")
-                    } : ""
-                }
-                catch (err) {
-                    return {}
-                }
-            }))
-            console.log("result.length",result.length)
-            return result;
+        let result = await Promise.all(links.map(async (link) => {
+            try {
+                var date = new Date();
+                var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+                return await link.getAttribute("href") ? {
+                    date: current_date,
+                    url: await link.getAttribute("href")
+                } : ""
+            }
+            catch (err) {
+                return {}
+            }
+        }))
+        console.log("result.length", result.length)
+        return result;
 
 
     } catch (error) {
