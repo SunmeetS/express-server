@@ -28,7 +28,7 @@ const addLinks = async (req, res) => {
         res.send("Links Added Succesfully")
     } catch (err) {
         console.log(err, " Hello there")
-        res.send("Error !!!")
+        res.send(err)
     }
 
 }
