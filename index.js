@@ -8,8 +8,8 @@ const corsOption = {
     origin: '*'
 };
 
-cron.schedule("*/10 * * * * *", function() {
-axios.post('http://localhost:3001/addLinks').then((res) => {
+cron.schedule("*/30 * * * * *", function() {
+axios.post('https://express-server-production-dd8e.up.railway.app/addLinks').then((res) => {
     console.log("Hello from axios")
     console.log(res.data)
 }); 
