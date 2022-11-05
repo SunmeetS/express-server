@@ -5,7 +5,7 @@
     "node": "14.x"
 },
   "description": "Express Server",
-  "main": "express.js",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon index",
     "start": "node index"

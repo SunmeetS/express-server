@@ -1,21 +1,23 @@
-let express = require ("express");
+let express = require("express");
 let routes = require("./database/routes")
 let cron = require("node-cron")
 const cors = require('cors');
-const { default: axios } = require("axios");
+const axios = require("axios");
 
 const corsOption = {
     origin: '*'
 };
 
-cron.schedule("0 1 * * 1", function() {
-    axios.post("http://satao.db.elephantsql.com/addLinks")
-});
+// cron.schedule("0 1 * * 1", function() {
+axios.post('https://express-server-production-dd8e.up.railway.app/addLinks').then((res) => {
+    console.log("Hello from axios")
+}); 
+// });
 
 let app = express();
 
-app.listen(process.env.PORT || 3001, ()=>{
-    console.log("Server listening on Port 3001");
+app.listen(process.env.PORT || 3001, () => {
+    console.log("Server listening on Port", 3001);
 })
 
 app.get("/", (req, res) => {

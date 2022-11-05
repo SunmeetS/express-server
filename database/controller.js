@@ -11,6 +11,7 @@ const addLinks = async (req, res) => {
 
     try {
         let links = await getStandupLinks()
+        console.log("links",links)
         links.forEach(({ date, url }) => {
             console.log(url)
             setTimeout(() => {
@@ -26,27 +27,30 @@ const addLinks = async (req, res) => {
         })
         res.send("Links Added Succesfully")
     } catch (err) {
-        console.log(err)
+        console.log(err, " Hello there")
     }
 
 }
-
 // pool.query(queries.addLinks, )
 
 
 const getLatestLinks = async (req, res) => {
 
-    pool.query(queries.getLatestLinks, async (error, result) => {
-        if (error) res.send(error.message);
-        else {
-            res.header("Access-Control-Allow-Origin", "*");
-            res.status(200).json(result.rows)
-        }
-        // console.log("links: ", links)
-    })
+    try {
+        pool.query(queries.getLatestLinks, async (error, result) => {
+            if (error) res.send(error.message);
+            else {
+                res.header("Access-Control-Allow-Origin", "*");
+                res.status(200).json(result.rows)
+            }
+            // console.log("links: ", links)
+        })
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 module.exports = {
     addLinks,
-    getLatestLinks
+    getLatestLinks,
 }
