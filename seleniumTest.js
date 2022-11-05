@@ -58,8 +58,8 @@ async function getStandupLinks() {
 
     } catch (error) {
         // console.log(error)
-        // getStandupLinks()
-        return {}
+        getStandupLinks()
+        return []
     }
 
 }

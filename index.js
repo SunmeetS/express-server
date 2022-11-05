@@ -8,11 +8,12 @@ const corsOption = {
     origin: '*'
 };
 
-// cron.schedule("0 1 * * 1", function() {
-axios.post('https://express-server-production-dd8e.up.railway.app/addLinks').then((res) => {
+cron.schedule("*/10 * * * * *", function() {
+axios.post('http://localhost:3001/addLinks').then((res) => {
     console.log("Hello from axios")
+    console.log(res.data)
 }); 
-// });
+});
 
 let app = express();
 

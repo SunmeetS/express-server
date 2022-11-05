@@ -11,7 +11,7 @@ const addLinks = async (req, res) => {
 
     try {
         let links = await getStandupLinks()
-        console.log("links",links)
+        console.log("links", links)
         links.forEach(({ date, url }) => {
             console.log(url)
             setTimeout(() => {
@@ -28,9 +28,8 @@ const addLinks = async (req, res) => {
         res.send("Links Added Succesfully")
     } catch (err) {
         console.log(err, " Hello there")
-        res.send(err)
+        res.send("Hello")
     }
-
 }
 // pool.query(queries.addLinks, )
 
