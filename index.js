@@ -1,15 +1,13 @@
-let express = require("express");
-let routes = require("./database/routes")
-let cron = require("node-cron")
-const cors = require('cors');
-const axios = require("axios");
+import express, { json } from "express";
+import routes from "./database/routes.js";
+import cron from "node-cron";
+import cors from 'cors';
+import axios from "axios";
+import { updateStandupComedy } from "./database/db.js";
 
-// cron.schedule("*/30 * * * * *", function() {
-// axios.post('http://localhost:3001/addLinks').then((res) => {
-//     console.log("Hello from axios")
-//     console.log(res.data)
-// }); 
-// });
+cron.schedule("5 0 30 * *", async function() {
+    await updateStandupComedy()
+});
 
 let app = express();
 
@@ -37,6 +35,6 @@ app.options(
     })
 );
 
-app.use(express.json());
+app.use(json());
 app.use(routes);
 //if you want in every domain then

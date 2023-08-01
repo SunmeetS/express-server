@@ -1,9 +1,9 @@
-const {Router} = require("express");
-const { addLinks, getLatestLinks } = require("./controller")
+import {Router} from 'express'
+import { addLinks, getLatestLinks } from "./controller.js"
 
 const router = Router();
 
 router.post("/addLinks", addLinks);
 router.get("/getLatestLinks", getLatestLinks);
 
-module.exports = router
+export default router

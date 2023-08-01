@@ -1,13 +1,11 @@
 
-const queries = require("./query")
-const { pool } = require("./db")
-let { getStandupLinks } = require("../seleniumTest")
-let cron = require("node-cron")
+import * as queries from './query.js'
+import { getStandupLinks } from "../seleniumTest.js"
 
 
 // console.log(()=>getStandupLinks())
 
-const addLinks = async (req, res) => {
+export const addLinks = async (req, res) => {
 
     try {
         let links = await getStandupLinks()
@@ -15,10 +13,10 @@ const addLinks = async (req, res) => {
         links.forEach(({ date, url }) => {
             console.log(url)
             setTimeout(() => {
-                pool.query(queries.addLinks, [date, url], (error, result) => {
+                pool.query(queries.addLinks, [date, url], (error) => {
                     if (error) {
                         console.log(error.message)
-                        pool.query(queries.addLinks, [date, url], (err, result) => {
+                        pool.query(queries.addLinks, [date, url], (err) => {
                             console.log(err.message)
                         })
                     }
@@ -34,7 +32,7 @@ const addLinks = async (req, res) => {
 // pool.query(queries.addLinks, )
 
 
-const getLatestLinks = async (req, res) => {
+export const getLatestLinks = async (req, res) => {
     try {
         pool.query(queries.getLatestLinks, async (error, result) => {
             if (error) res.send(error.message);
@@ -49,7 +47,3 @@ const getLatestLinks = async (req, res) => {
     }
 }
 
-module.exports = {
-    addLinks,
-    getLatestLinks,
-}
